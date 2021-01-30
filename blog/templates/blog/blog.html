@@ -52,7 +52,7 @@
 			    <a class="nav-link text-dark" href="#"><em>Facebook</em></a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link text-dark" href="{% url 'posts' %}"><em>Blog</em></a>
+			    <a class="nav-link text-dark" href="#"><em>Blog</em></a>
 			  </li>
 			</ul>
 		  </div>
@@ -61,30 +61,27 @@
 
     <main role="main">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <p class="lead text-muted">Hey tyere! I'm excited to see you here! You can write me right now!</p>
-            <a href="mailto:kronalf@mail.ru" class="btn btn-primary my-2">Mail me</a>
-          </p>
-        </div>
-      </section>
-
       <div class="album py-5 bg-light">
         <div class="container">
-          <div class="row">
+          
 
-          	{% for event in events.all %}
+          	{% for post in posts.all %}
 
+          	<div class="row">
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="{{ event.event_image.url }}" alt="Card image cap"/>
+                <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap"/>
                 <div class="card-body">
-                  <p class="card-text">{{ event.event_text }}</p>
+                  <p class="card-text">{{ post.text }}</p>
+                 </div>
+                 <div class="card-body">
+                  <p class="card-text">{{ post.date }}</p>
                  </div>
                 </div>
         	 </div>
+        	 </div>
         	 {% endfor %}
-    	    </div>
+    	    
 		  </div>
 		</div>
             
